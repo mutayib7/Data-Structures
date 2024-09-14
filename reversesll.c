@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 struct node{
-    struct node *prev; 
+    
     int data;
     struct node *next;
 
@@ -20,7 +20,7 @@ void create_ll()
         temp->next=NULL;
         printf("enter the data");
         scanf("%d",&temp->data);
-        temp->prev=temp->next=NULL;
+        
 
         if(head == NULL)
         {
@@ -31,7 +31,7 @@ void create_ll()
         {
             tail->next = temp;
 
-            temp->prev=tail;
+          
             tail=temp;
         }
 
@@ -51,14 +51,14 @@ trav=trav->next;
 }
 
 void reverse(){
-    struct node *q,*p;
+    struct node *q,*p,*t=NULL;
 
         p=head;
         while(p!=NULL){
-            q=p->next;
-            p->next=p->prev;
-            p->prev=q;
-            p=q;
+            q=t;
+            t=p;
+            p=p->next;
+            t->next=q;
         }
        p=head;
        head=tail;
