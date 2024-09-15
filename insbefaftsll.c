@@ -22,12 +22,12 @@ void create()
         {
             head=temp;
             tail=temp;
-            
+
         }
         else
         { 
             tail->next=temp;
-            
+
             tail=temp;
         }
     }
@@ -51,6 +51,7 @@ void insert()
     if(n==2)
     {
     struct node*temp = (struct node*)malloc(sizeof(struct node));
+   temp->data=element;
     printf("\nNode after which you want to add new node ");
     scanf("%d",&item);
     struct node*trav=head;
@@ -58,20 +59,23 @@ void insert()
     {
         tail->next=temp;
         tail=temp;
+        
     }
+    else{
     while(trav->data!=item)
     {
         trav=trav->next;
     }
-    temp->data=element;
+    
     temp->next=trav->next;
 
     trav->next=temp;
-    
+    }
     }
     else if(n==1)
     {
         struct node*temp = (struct node*)malloc(sizeof(struct node));
+        temp->data=element;
         printf("\nNode before which you want to add new node ");
         scanf("%d",&item);
         struct node*trav=head;
@@ -80,23 +84,23 @@ void insert()
             temp->next=head;
             head=temp;
             
-            
+
         }
         else
         {
             while(trav->next->data!=item)
             {
                 trav=trav->next;
-                
+
             }
             temp->next=trav->next;
-            
-        
+
+
             trav->next=temp;
-            temp->data=element;
+            
         }
     }
-    
+
 }
 int main() 
 {
@@ -115,7 +119,7 @@ int main()
         }
         else if(ch==3)
             insert();
-      
+
 
     }
 }
