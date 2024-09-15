@@ -54,9 +54,10 @@ void insert()
     printf("\nNode after which you want to add new node ");
     scanf("%d",&item);
     struct node*trav=head;
-    if(head->data==item)
+    if(tail->data==item)
     {
-        
+        tail->next=temp;
+        tail=temp;
     }
     while(trav->data!=item)
     {
