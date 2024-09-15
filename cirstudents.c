@@ -47,7 +47,7 @@ void create_ll(struct node *temp)
 void view_ll(struct node *a)
 {
     struct node *p = head;
-    while(p->next!=head)
+    while(1)
     {
         if(p->marks<100){
         printf("student details are:\n");
@@ -55,6 +55,8 @@ void view_ll(struct node *a)
         printf("Age: %d\n", p->age);
         printf("Marks: %d\n",p->marks);
         }
+        if(p->next==head)
+        break;
         p=p->next;
     }
 }
