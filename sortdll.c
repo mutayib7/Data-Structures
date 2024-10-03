@@ -6,20 +6,22 @@ struct node{
     struct node *next;
 
 };
-struct node *head=NULL,*tail=NULL,*p;
+struct node *head=NULL,*tail=NULL;
 
 void create_ll()
 {
-    int num=1;
+    int n;
+printf("enter no of nodes");
+scanf("%d",&n);
     
-    while(num)
+    for(int i=0;i<n;i++)
     {
         struct node *temp;
         temp = (struct node*)malloc(sizeof(struct node));
-        temp->next=NULL;
+         temp->prev=temp->next=NULL;
         printf("enter the data");
         scanf("%d",&temp->data);
-        temp->prev=temp->next=NULL;
+       
 
         if(head == NULL)
         {
@@ -28,15 +30,12 @@ void create_ll()
         }
         else
         {
-            p=head;
-            while(p->next!=NULL){
-            p=p->next;
-            }
-            p->next=temp;
+            tail->next=temp;
+            temp->prev=tail;
+            tail=temp;
             
         }
-        printf("enter 1 for new node & 0 for no node");
-        scanf("%d",&num);
+        
     }
     
 }
